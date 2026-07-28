@@ -2,12 +2,16 @@ services:
   jaeger-all-in-one:
     image: jaegertracing/jaeger:2.0.0
     container_name: jaeger
+    command:
+      - "--set=receivers.otlp.protocols.grpc.endpoint=0.0.0.0:4317"
+      - "--set=receivers.otlp.protocols.http.endpoint=0.0.0.0:4318"
+      # - "--set=telemetry.metrics.address=0.0.0.0:8888"
     environment:
       - COLLECTOR_OTLP_ENABLED=true
     ports:
       - "16686:16686" # Jaeger (Dashboard)
-      - "4317"        # OTLP gRPC
-      - "4318"        # OTLP HTTP
+      # - "4317:4317"   # OTLP gRPC
+      # - "4318:4318"   # OTLP HTTP
 
   # Zipkin
   zipkin-all-in-one:
