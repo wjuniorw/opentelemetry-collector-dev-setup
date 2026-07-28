@@ -1,14 +1,14 @@
-version: "2"
 services:
 
-  # Jaeger
-  jaeger-all-in-one:
-    image: jaegertracing/all-in-one:latest
-    restart: always
+jaeger-all-in-one:
+    image: jaegertracing/jaeger:2.0.0
+    container_name: jaeger
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
     ports:
-      - "16686:16686"
-      - "14268"
-      - "14250"
+      - "16686:16686" # Jaeger (Dashboard)
+      - "4317"        # OTLP gRPC
+      - "4318"        # OTLP HTTP
 
   # Zipkin
   zipkin-all-in-one:
