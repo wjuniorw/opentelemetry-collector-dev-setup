@@ -1,6 +1,5 @@
 services:
-
-jaeger-all-in-one:
+  jaeger-all-in-one:
     image: jaegertracing/jaeger:2.0.0
     container_name: jaeger
     environment:
