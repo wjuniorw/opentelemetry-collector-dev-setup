@@ -8,7 +8,7 @@ We modified it for you so it can be use for developing your Next.js application 
 docker-compose up -d
 ```
 
-That will expose the following backends:
+That will expose the following backends ui interfaces:
 
 - Jaeger at http://0.0.0.0:16686
 - Zipkin at http://0.0.0.0:9411
